@@ -1,4 +1,4 @@
-FROM python:3.9-slim-buster
+FROM python:3.10-alpine
 
 WORKDIR /app
 
@@ -10,6 +10,4 @@ COPY . .
 
 EXPOSE 5000
 
-ENV FLASK_APP=app.py
-
-CMD ["flask", "run", "--host", "0.0.0.0"]
+CMD ["python3", "app.py"]
