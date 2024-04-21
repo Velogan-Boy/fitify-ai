@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/19ed8a5189.js"
+        crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+        crossorigin="anonymous" />
+    <link rel="shortcut icon" href="../static/images/icon.png" />
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='index.css') }}" />
+    <title>Fitify - Workout Tracker app</title>
+</head>
+<body>
+    <!-- WORKOUT MODAL
+      <div class="modal" id="workoutModal" tabindex="-1" role="dialog" aria-labelledby="workoutModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+               <form id="workoutform">
+                  <div class="modal-header bg-primary bg-opacity-10">
+                     <h6 class="modal-title" id="workoutModalLabel"><p class="display-6">Start New Workout</p></h6>
+                  </div>
+                  <div class="modal-body">
+                     <div class="mb-3">
+                        <label for="type" class="form-label">Workout Type:</label>
+                        <select id="type" class="form-select" aria-label="Select Workout Type">
+                           <option selected value="cycling">Cycling</option>
+                           <option value="jogging">Jogging</option>
+                           <option value="pushups">Pushups</option>
+                           <option value="squats">Squats</option>
+                        </select>
+                     </div>
+                     <div class="mb-3 changing-field">
+                        <label for="distance" class="form-label">Distance travelled:</label>
+                        <input id="distance" type="number" class="form-control" min="0" placeholder="in km" />
+                     </div>
+                     <div class="mb-3">
+                        <label for="duration" class="form-label">Workout Duration:</label>
+                        <input id="duration" type="number" class="form-control" min="0" max="24" placeholder="in hrs" />
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fas fa-times"></i>&nbsp;Close</button>
+                     <button type="submit" class="btn btn-success"><i class="fas fa-check"></i>&nbsp;Add to Tracker</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div> -->
+    <!--NAV BAR-->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="">
+                <img class="image-fluid mx-lg-3 nav-logo"
+                    src="../static/images/logo-Fitify-McFIT-300x.png"
+                    alt="logo" />
+            </a>
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbar"
+                aria-controls="navbar" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-center justify-content-evenly"
+                id="navbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item mx-xl-3 mx-md-0">
+                        <a class="nav-link active" href="#"> <i
+                                class="fas fa-heartbeat"></i>&nbsp; Fitify
+                            Tracker </a>
+                    </li>
+                    <li class="nav-item mx-xl-3 mx-md-0">
+                        <a class="nav-link" href=""><i
+                                class="fas fa-bullseye"></i>&nbsp; Goal
+                            Setter</a>
+                    </li>
+                    <li class="nav-item mx-xl-3 mx-md-0">
+                        <a class="nav-link" href=""> <i
+                                class="fas fa-running"></i>&nbsp; Fitness
+                            tips</a>
+                    </li>
+                    <li class="nav-item mx-xl-3 mx-md-0">
+                        <a class="nav-link" href=""> <i
+                                class="far fa-address-card"></i>&nbsp; About
+                            us</a>
+                    </li>
+                    <li class="nav-item mx-xl-3 mx-md-0">
+                        <a class="nav-link" href=""> <i
+                                class="fas fa-phone-alt"></i>&nbsp; Contact
+                            us</a>
+                    </li>
+                </ul>
+                <a href="/exercise">
+                    <button class="btn btn-primary ml-auto btn-workout"
+                        data-bs-toggle="modal" data-bs-target="#workoutModal"
+                        title="Add New Workout">
+                        <i class="fas fa-dumbbell"></i>&nbsp; START NEW WORKOUT
+                    </button></a>
+            </div>
+        </div>
+    </nav>
+    <!--COROUSEL -->
+    <div id="carouselExampleCaptions" class="carousel slide"
+        data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="0" class="active" aria-current="true"
+                aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../static/images/804864.jpg" class="d-block w-100"
+                    alt="..." />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>FITIFY</h5>
+                    <p>Nothing will work, unless you do!</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../static/images/804846.jpg" class="d-block w-100"
+                    alt="..." />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>FITIFY</h5>
+                    <p>All progress takes place outside your comfort zone!</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../static/images/804826.jpg" class="d-block w-100"
+                    alt="..." />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>FITIFY</h5>
+                    <p>You may not be there yet, but you are closer than you
+                        were yesterday!</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../static/images/804859.jpg" class="d-block w-100"
+                    alt="..." />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>FITIFY</h5>
+                    <p>Shut up and Squat! You Bullshit!</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button"
+            data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button"
+            data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <!--MAIN SECTION-->
+    <main class="container-fluid p-lg-4">
+        <div class="container">
+            <h1 class="display-6 mt-4 mb-md-5 mb-4 text-center main-heading">
+                <img class="image-fluid me-1 main-logo"
+                    src="../static/images/logo-Fitify-McFIT-300x.png"
+                    alt="logo" />Tracker
+            </h1>
+        </div>
+        <div class="container-fluid px-lg-4">
+            <div class="row card-container"></div>
+        </div>
+    </main>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"
+        integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
+        crossorigin="anonymous"></script>
+    <!--My Script-->
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>

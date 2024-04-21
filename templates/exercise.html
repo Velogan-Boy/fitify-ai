@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Fitify Tracker</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='exercise.css') }}" />
+      <script src="https://kit.fontawesome.com/19ed8a5189.js" crossorigin="anonymous"></script>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+      <link
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+         rel="stylesheet"
+         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+         crossorigin="anonymous"
+      />
+      <link rel="shortcut icon" href="../static/images/icon.png" />
+      <link rel="stylesheet" href="{{ url_for('static', filename='exercise.css') }}" />
+   </head>
+   <body>
+      <nav class="navbar sticky-top navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="/">
+               <img class="image-fluid  nav-logo" src="../static/images/logo-Fitify-McFIT-300x.png" alt="logo" />
+            </a>
+            <button
+               class="navbar-toggler"
+               type="button"
+               data-bs-toggle="collapse"
+               data-bs-target="#navbar"
+               aria-controls="navbar"
+               aria-expanded="false"
+               aria-label="Toggle navigation"
+            >
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-center justify-content-evenly" id="navbar">
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item mx-xl-3 mx-md-0">
+                     <a class="nav-link active" href="#"> <i class="fas fa-heartbeat"></i>&nbsp; Fitify Tracker </a>
+                  </li>
+                  <li class="nav-item mx-xl-3 mx-md-0">
+                     <a class="nav-link" href=""><i class="fas fa-bullseye"></i>&nbsp; Goal Setter</a>
+                  </li>
+                  <li class="nav-item mx-xl-3 mx-md-0">
+                     <a class="nav-link" href=""> <i class="fas fa-running"></i>&nbsp; Fitness tips</a>
+                  </li>
+                  <li class="nav-item mx-xl-3 mx-md-0">
+                     <a class="nav-link" href=""> <i class="far fa-address-card"></i>&nbsp; About us</a>
+                  </li>
+                  <li class="nav-item mx-xl-3 mx-md-0">
+                     <a class="nav-link" href=""> <i class="fas fa-phone-alt"></i>&nbsp; Contact us</a>
+                  </li>
+               </ul>
+            </div>
+      </nav>
+
+      <h1 class="text-center mt-4">Sweat now, shine later!</h1>
+
+      <div class="container container-1 mt-2">
+         <div class="video-container">
+            <iframe src="{{ url_for('video_feed') }}" frameborder="0" allowfullscreen></iframe>
+         </div>
+         <div class="exercise-container">
+            <div class="card card-mod">
+               <div class="card-header exercise-name">
+                  <h2 class="display-4" id="exercise-label">?</h2>
+
+                  <div class="badge bg-light float-end text-uppercase text-dark text-mod-1">
+                     <i class="far fa-calendar-alt"></i>&nbsp;
+                     <span>Today</span>
+                  </div>
+               </div>
+               <ul class="list-group list-group-flush py-lg-2 text-center text-mod-1">
+                  <li class="list-group-item card-list">
+                     <i class="fas fa-dumbbell"></i>&nbsp; Reps
+                     <span class="badge badge-pill bg-dark bg-opacity-75 ms-1 text-white"><span id="reps-label">0 </span> reps</span>
+                  </li>
+
+                  <li class="list-group-item card-list">
+                     <i class="far fa-clock"></i>&nbsp; Duration
+                     <span class="badge badge-pill bg-dark bg-opacity-75 ms-1 text-white"><span id="duration-label">0 </span> mins </span>
+                  </li>
+
+                  <li class="list-group-item card-list">
+                     <i class="fas fa-fire-alt"></i>&nbsp; Calories
+                     <span class="badge badge-primary badge-pill bg-warning ms-3 text-black"><span id="calories-label">0 </span> cal </span>
+                  </li>
+               </ul>
+            </div>
+
+            <button class="btn btn-primary mt-4" id="add-log"><i class="fas fa-dumbbell"></i>&nbsp; ADD WORKOUT LOG</button>
+         </div>
+      </div>
+
+      <script src="{{ url_for('static', filename='exercise.js') }}"></script>
+   </body>
+</html>
+

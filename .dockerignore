@@ -1,7 +1,7 @@
 pose-detection-app
 posenet-pytorch
-dataset
-models/
 models.zip
+Notebooks
+docs/
 env
 __pycache__
