@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+
+  fitify-flask:
+    build: .
+    container_name: fitify-flask
+    environment:
+      - APP_NAME=fitify
+    expose:
+      - 8080
+
+  fitify-nginx:
+    build: ./nginx
+    container_name: fitify-nginx
+    ports:
+      - "80:80"

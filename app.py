@@ -15,7 +15,7 @@ pose = mp.solutions.pose.Pose()
 SEQUENCE_LENGTH = 40
 actions = np.array(['barbell biceps curl', 'bench press', 'chest fly machine', 'deadlift', 'decline bench press',
                     'hammer curl', 'hip thrust', 'incline bench press', 'lat pulldown', 'lateral raise',
-                    'leg extension', 'leg raises', 'plank', 'pull Up', 'push-up', 'romanian deadlift',
+                    'leg extension', 'leg raises', 'plank', 'pull up', 'push up', 'romanian deadlift',
                     'russian twist', 'shoulder press', 'squat', 't bar row', 'tricep Pushdown', 'tricep dips'])
 
 
@@ -52,11 +52,17 @@ def gen_frames():
 
     start = datetime.datetime.now()
 
-    # cap = cv2.VideoCapture(0)
-    cap = cv2.VideoCapture("./dataset/squat/squat_13.mp4")
+    cap = cv2.VideoCapture(0)
+    # cap = cv2.VideoCapture("./dataset/squat/squat_13.mp4")
     # cap = cv2.VideoCapture('./dataset/hammer curl/hammer curl_19.mp4')
-    # cap = cv2.VideoCapture('./dataset/shoulder press/shoulder press_12.mp4') #
     # cap = cv2.VideoCapture('./dataset/barbell biceps curl/barbell biceps curl_46.mp4')
+    # cap = cv2.VideoCapture('./dataset/shoulder press/shoulder press_11.mp4') 
+    # cap = cv2.VideoCapture('./dataset/push up/push-up_3.mp4')
+    # cap = cv2.VideoCapture('./dataset/pull up/pull up_13.mp4')
+    # cap = cv2.VideoCapture('./dataset/lat pulldown/lat pulldown_1.mp4')
+    # cap = cv2.VideoCapture('./dataset/bench press/bench press_36.mp4')
+    # cap = cv2.VideoCapture('./dataset/leg raises/leg raises_9.mp4')
+    # cap = cv2.VideoCapture('./dataset/hip thrust/hip thrust_10.mp4')
 
     while True:
         ret, frame = cap.read()

@@ -105,7 +105,7 @@ const addNewCard = function (card) {
       html += `
       <li class="list-group-item">
             <i class="far fa-clock"></i>&nbsp; Duration :
-            <span class="badge badge-pill bg-dark bg-opacity-75 ms-3"><span>${card.duration}</span> Hrs </span>
+            <span class="badge badge-pill bg-dark bg-opacity-75 ms-3"><span>${card.duration}</span> mins </span>
       </li>
                         
       <li class="list-group-item">

@@ -111,3 +111,12 @@ body {
    background-color: #00ccdb3b;
 }
 
+@media only screen and (max-width: 768px) {
+   .container-1 {
+      flex-direction: column;
+   }
+
+   .video-container {
+      width: 90vw;
+   }
+}

@@ -162,7 +162,7 @@ def count_reps(exercise_type, frame, results, rep=0, state=None):
         if (left_knee_angle > thr) and (right_knee_angle > thr) and (left_hip_angle > thr) and (right_hip_angle > thr) and (state == None):
             state = 'up'
 
-    elif exercise_type == "press":
+    elif exercise_type == "shoulder press" or exercise_type == "pull up" or exercise_type == "lat pulldown":
 
         elbow_angle = calculate_angle(frame, keypoints_with_scores,  Keypoint.LEFT_SHOULDER,
                                       Keypoint.LEFT_ELBOW, Keypoint.LEFT_WRIST)
@@ -181,6 +181,68 @@ def count_reps(exercise_type, frame, results, rep=0, state=None):
         if (elbow_angle < 50) and (shoulder2elbow_dist > shoulder2wrist_dist) and (state == None):
             state = 'down'
 
+    elif exercise_type == "push up" :
+
+        elbow_angle = calculate_angle(frame, keypoints_with_scores,  Keypoint.LEFT_SHOULDER,
+                                      Keypoint.LEFT_ELBOW, Keypoint.LEFT_WRIST)
+
+        if (elbow_angle > 130):
+            state = "up"
+        if (elbow_angle < 80) and (state == 'up'):
+            state = 'down'
+            rep += 1
+        if (elbow_angle < 80) and (state == None):
+            state = 'down'
+
+    elif exercise_type =="bench press":
+            shoulder2elbow_dist = abs(math.dist(
+                shaped[int(Keypoint.LEFT_SHOULDER)], shaped[int(Keypoint.LEFT_ELBOW)]))
+            shoulder2wrist_dist = abs(math.dist(
+                shaped[int(Keypoint.LEFT_SHOULDER)], shaped[int(Keypoint.LEFT_WRIST)]))
+           
+            if (shoulder2elbow_dist < shoulder2wrist_dist):
+                state = "up"
+            if  (shoulder2elbow_dist > shoulder2wrist_dist) and (state == 'up'):
+                state = 'down'
+                rep += 1
+            if  (shoulder2elbow_dist > shoulder2wrist_dist) and (state == None):
+                state = 'down'
+                
+    elif exercise_type == "hip thrust":
+            
+        left_hip_angle = calculate_angle(
+            frame, keypoints_with_scores, Keypoint.LEFT_SHOULDER, Keypoint.LEFT_HIP, Keypoint.LEFT_KNEE)
+        right_hip_angle = calculate_angle(
+            frame, keypoints_with_scores, Keypoint.RIGHT_SHOULDER, Keypoint.RIGHT_HIP, Keypoint.RIGHT_KNEE)
+        
+        thr = 150
+        
+        if (left_hip_angle < thr):
+            state = "down"
+        if  (left_hip_angle > thr) and (state == 'down'):
+            state = 'up'
+            rep += 1
+        if  (left_hip_angle > thr)  and (state == None):
+            state = 'up'
+    
+    elif exercise_type == "leg raises":
+            
+        left_hip_angle = calculate_angle(
+            frame, keypoints_with_scores, Keypoint.LEFT_SHOULDER, Keypoint.LEFT_HIP, Keypoint.LEFT_KNEE)
+        right_hip_angle = calculate_angle(
+            frame, keypoints_with_scores, Keypoint.RIGHT_SHOULDER, Keypoint.RIGHT_HIP, Keypoint.RIGHT_KNEE)
+        
+        thr = 160
+        
+        if (left_hip_angle < thr):
+            state = "up"
+        if  (left_hip_angle > thr) and (state == 'up'):
+            state = 'down'
+            rep += 1
+        if  (left_hip_angle > thr)  and (state == None):
+            state = 'down'
+        
+        
     else:
         pass
 
