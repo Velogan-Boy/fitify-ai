@@ -53,7 +53,7 @@ function calculateCalorie(data) {
    const durationHours = ((Date.now() - new Date(data.duration)) / (1000 * 60) + 330) / 60;
 
    // MET * weight (kg) * duration (hours)
-   const caloriesBurned = met * USER_WEIGHT_KG * durationHours;
+   const caloriesBurned = met * USER_WEIGHT_KG * durationHours * data.rep;
 
    return caloriesBurned ? caloriesBurned.toFixed(2) : 0;
 }
@@ -87,6 +87,12 @@ function fetchRecognizedExercise() {
       .then((response) => response.json())
       .then((data) => {
          updateExercise(data);
+         // if(!data.is_body_present)
+         //    window.alert("Body is not present")
+         // else if(!data.is_face_present)
+         //    window.alert("Face is not present")
+         // else if(!data.is_proper_lighting)
+         //    window.alert("Not Proper lightning")
       })
       .catch((error) => {
          console.error('Error fetching recognized exercise:', error);
