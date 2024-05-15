@@ -1,4 +1,0 @@
-add specific algorithms for specific modules
-add detailed module diagrams  
-domain knowledge ( ground truth )
-performance metrics 

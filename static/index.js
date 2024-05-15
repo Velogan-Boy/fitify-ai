@@ -82,6 +82,8 @@ const addExistingCards = function () {
 };
 
 const addNewCard = function (card) {
+      if (!card.type) return
+
       let html = `
        <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-5" data-key="${card.timestamp}">
                   <div class="card card-mod card-mod--${card.type}">
